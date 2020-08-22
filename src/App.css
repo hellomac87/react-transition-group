@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+.my-node-enter {
+  transform: translate3d(100%, 0, 0);
+}
+.my-node-enter-active {
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.5s ease;
+}
+.my-node-exit {
+  transform: translate3d(0, 0, 0);
+}
+.my-node-exit-active {
+  transform: translate3d(100%, 0, 0);
+  transition: transform 0.5s ease;
+}

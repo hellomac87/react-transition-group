@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import "./App.css";
+import { CSSTransition } from "react-transition-group";
 import Map from "./Map";
 import logo from "./logo.svg";
-import "./App.css";
 
 function App() {
   const [visibleMap, setVisibleMap] = useState(false);
+
   const onClick = () => {
     setVisibleMap(true);
   };
@@ -27,7 +29,14 @@ function App() {
           <button onClick={onClick}>open map</button>
         </header>
       </div>
-      {visibleMap && <Map setVisibleMap={setVisibleMap} />}
+      <CSSTransition
+        in={visibleMap}
+        timeout={300}
+        classNames={"my-node"}
+        unmountOnExit
+      >
+        <Map setVisibleMap={setVisibleMap} />
+      </CSSTransition>
     </>
   );
 }
